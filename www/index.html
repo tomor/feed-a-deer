@@ -6,11 +6,34 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Feed a deer</title>
         <meta charset="UTF-8">
+        <title>Feed a deer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/components.css" />
     </head>
     <body>
-        
+        <div id="sidebar">
+            <div class="sidebar__line sidebar__title">
+                <h2>Menu</h2>
+            </div>
+            <div class="sidebar__line sidebar__score">
+                <span class="sidebar__label">Score:</span>
+                <span class="sidebar__value" id="score">0</span>
+            </div>
+            <div class="sidebar__line sidebar__lives">
+                <span class="sidebar__label">Lives:</span>
+                <span class="sidebar__value" id="lives">3</span>
+            </div>
+            
+        </div>
+        <div id="arena">
+            <div id="player"></div>
+            <div id="feed-pot"</div>
+            
+
+        </div>
     </body>
 </html>

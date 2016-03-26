@@ -1,0 +1,29 @@
+
+
+#sidebar {
+    margin: 0px;
+    background-color: grey;
+    width: 10%;
+    height: 100%;
+    float: left;
+}
+#arena {
+    margin: 0px;
+    background-color: green;
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#player {
+    /*background-image: url("sprite-player.png");*/
+    background-color: red;
+    width: 128px;
+    height: 128px;
+}
+
+#feed-pot {
+    background-color: yellow;
+    width: 128px;
+    height: 128px;
+}
