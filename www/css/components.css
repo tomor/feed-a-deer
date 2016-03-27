@@ -16,13 +16,16 @@
 }
 
 #player {
+    position: absolute;
     background-image: url("../img/player-sprite.png");
     width: 50px;
     height: 90px;
     background-position: 50px 0px;
+    z-index: 5;
 }
 
 #feed-pot {
+    position: absolute;
     background-color: yellow;
     width: 128px;
     height: 128px;
