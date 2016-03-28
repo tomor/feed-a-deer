@@ -14,11 +14,12 @@ requirejs.config({
 
 // Start the main app logic.
 requirejs(['jquery', 'app/game'],
-function   (jquery, game) {
+function   (jquery, Game) {
     //jQuery, and the app/main module are all
     //loaded and can be used here now.
 
     jquery(document).ready(function() {
+        var game = new Game();
         game.start();
     });
 });
