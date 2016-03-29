@@ -2,12 +2,14 @@ define(
     [
      'jquery',
      './objects/Player',
-     './objects/Arena'
+     './objects/Arena',
+     './objects/FoodPot'
     ],
 function (
     jquery,
     Player,
-    Arena
+    Arena,
+    FoodPot
 ) {
     "use strict";
 
@@ -26,6 +28,7 @@ function (
         this.lastUpdate = 0; // time variable for requestAnimationFrame
         this.player;
         this.arena;
+        this.foodPot;
 
         /**
          * Main method to start the game
@@ -33,8 +36,12 @@ function (
          * @returns {undefined}
          */
         this.start = function() {
-            this.arena  = new Arena();
-            this.player = new Player(this.arena);
+            this.arena   = new Arena();
+            this.player  = new Player(this.arena);
+            this.foodPot = new FoodPot(this.arena);
+            
+            this.player.initPosition();
+            this.foodPot.initPosition();
             
             this.setKeyboardControl(this.player);
 

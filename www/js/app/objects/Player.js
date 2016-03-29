@@ -18,9 +18,9 @@ define(['jquery'], function(jquery) {
         }
 
         // "constants" for access of position and velocity arrays
-        var X = 0;
-        var Y = 1;
-        
+        var TOP = 1;
+        var LEFT = 0;
+            
         var element      = jquery('#player');
         var playerWidth  = 60;
         var playerHeight = 90;
@@ -28,6 +28,18 @@ define(['jquery'], function(jquery) {
         var velocity     = [0, 0]; // speed of the player
         var playerSpeed  = 0.35;
         var paused       = false;
+
+        /**
+         * Place itself to the middle bottom
+         *
+         * @returns {undefined}
+         */
+        this.initPosition = function() {
+            position[TOP]  = arena.getMaxPositionBottom(this);
+            position[LEFT] = arena.getMaxPositionRight(this)/2-50;
+
+            arena.renderObjectPosition(this);
+        };
 
         /**
          * Public function - updates status of the player
@@ -45,16 +57,16 @@ define(['jquery'], function(jquery) {
         };
 
        /**
-        * Start/stop to move player up by altering Y velocity
+        * Start/stop to move player up by altering TOP velocity
         *
         * @param {Boolean} enable
         * @returns {undefined}
         */
         this.moveUp = function (enable) {
             if (enable) {
-                velocity[Y] = -playerSpeed;
+                velocity[TOP] = -playerSpeed;
             } else {
-                velocity[Y] = 0;
+                velocity[TOP] = 0;
             }
         };
 
@@ -66,9 +78,9 @@ define(['jquery'], function(jquery) {
         */
         this.moveDown = function(enable) {
             if (enable) {
-                velocity[Y] = playerSpeed;
+                velocity[TOP] = playerSpeed;
             } else {
-                velocity[Y] = 0;
+                velocity[TOP] = 0;
             }
         };
 
@@ -80,9 +92,9 @@ define(['jquery'], function(jquery) {
         */
         this.moveLeft = function(enable) {
             if (enable) {
-                velocity[X] = -playerSpeed;
+                velocity[LEFT] = -playerSpeed;
             } else {
-                velocity[X] = 0;
+                velocity[LEFT] = 0;
             }
         };
 
@@ -94,9 +106,9 @@ define(['jquery'], function(jquery) {
         */
         this.moveRight = function(enable) {
             if (enable) {
-                velocity[X] = playerSpeed;
+                velocity[LEFT] = playerSpeed;
             } else {
-                velocity[X] = 0;
+                velocity[LEFT] = 0;
             }
         };
 
@@ -145,24 +157,24 @@ define(['jquery'], function(jquery) {
         * @returns {undefined}
         */
         this._move = function(t) {
-            position[X] += velocity[X] * t;
-            position[Y] += velocity[Y] * t;
+            position[LEFT] += velocity[LEFT] * t;
+            position[TOP] += velocity[TOP] * t;
 
             // check and fix if player would be out of arena
-            if (position[X] < 0) {
-                position[X] = 0;
+            if (position[LEFT] < 0) {
+                position[LEFT] = 0;
             }
 
-            if (position[Y] < 0) {
-                position[Y] = 0;
+            if (position[TOP] < 0) {
+                position[TOP] = 0;
             }
 
-            if ((position[X]) > arena.getMaxPositionRight(this)) {
-                position[X] = arena.getMaxPositionRight(this);
+            if ((position[LEFT]) > arena.getMaxPositionRight(this)) {
+                position[LEFT] = arena.getMaxPositionRight(this);
             }
 
-            if ((position[Y]) > arena.getMaxPositionBottom(this)) {
-                position[Y] = arena.getMaxPositionBottom(this);
+            if ((position[TOP]) > arena.getMaxPositionBottom(this)) {
+                position[TOP] = arena.getMaxPositionBottom(this);
             }
 
             // Finally, update the player's position on the page.

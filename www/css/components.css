@@ -17,16 +17,26 @@
 
 #player {
     position: absolute;
-    background-image: url("../img/player-sprite.png");
+    z-index: 5;
     width: 50px;
     height: 90px;
+    background-image: url("../img/player-sprite.png");
     background-position: 50px 0px;
-    z-index: 5;
+
+    /* make it invisible at the beginning */
+    top: -200px;
+    left: -200px;
 }
 
-#feed-pot {
+#food-pot {
     position: absolute;
-    background-color: yellow;
-    width: 128px;
-    height: 128px;
+    z-index: 4;
+    width: 70px;
+    height: 70px;
+    background-image: url("../img/food-pot-sprite.png");
+    background-position: 0px 0px;
+
+    /* make it invisible at the beginning */
+    top: -200px;
+    left: -200px;
 }
