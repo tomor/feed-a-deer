@@ -26,14 +26,8 @@ define(['jquery'], function(jquery) {
         var playerHeight = 90;
         var position     = [0, 0]; // top left corner x, y
         var velocity     = [0, 0]; // speed of the player
-        var playerSpeed  = 0.4;
+        var playerSpeed  = 0.35;
         var paused       = false;
-
-        // max position of the arena - TODO get from arena object
-        var maxLeft = 0;
-        var maxRight = innerWidth - playerWidth;
-        var maxTop = 0;
-        var maxBottom = innerHeight - playerHeight;
 
         /**
          * Public function - updates status of the player
@@ -116,12 +110,21 @@ define(['jquery'], function(jquery) {
         };
 
         /**
-         * Returns size of the player - X,Y axis
+         * Returns size of the player
          *
-         * @returns {Array}
+         * @returns {Number}
          */
-        this.getSize = function() {
-            return [playerWidth, playerHeight];
+        this.getWidth = function() {
+            return playerWidth;
+        };
+
+        /**
+         * Returns size of the player
+         *
+         * @returns {Number}
+         */
+        this.getHeight = function() {
+            return playerHeight;
         };
 
         /**
@@ -146,16 +149,16 @@ define(['jquery'], function(jquery) {
             position[Y] += velocity[Y] * t;
 
             // check and fix if player would be out of arena
-            if (position[X] < arena.getMaxPositionLeft(this)) {
-                position[X] = arena.getMaxPositionLeft(this);
+            if (position[X] < 0) {
+                position[X] = 0;
+            }
+
+            if (position[Y] < 0) {
+                position[Y] = 0;
             }
 
             if ((position[X]) > arena.getMaxPositionRight(this)) {
                 position[X] = arena.getMaxPositionRight(this);
-            }
-
-            if (position[Y] < arena.getMaxPositionTop(this)) {
-                position[Y] = arena.getMaxPositionTop(this);
             }
 
             if ((position[Y]) > arena.getMaxPositionBottom(this)) {

@@ -63,22 +63,27 @@ function (
          * @returns {undefined}
          */
         this.setKeyboardControl = function (player) {
+            // arrow keys codes
+            var LEFT  = 37;
+            var UP    = 38;
+            var RIGHT = 39;
+            var DOWN  = 40;
 
             jquery(document).keydown(function(event) {
                 var event = event || window.event; // deal with IE
                 // This code converts the keyCode (a number) from the event to an uppercase
                 // letter to make the switch statement easier to read.
-                switch(String.fromCharCode(event.keyCode).toUpperCase()) {
-                    case 'A':
+                switch(event.keyCode) {
+                    case LEFT:
                         player.moveLeft(true);
                         break;
-                    case 'D':
+                    case RIGHT:
                         player.moveRight(true);
                         break;
-                    case 'W':
+                    case UP:
                         player.moveUp(true);
                         break;
-                    case 'S':
+                    case DOWN:
                         player.moveDown(true);
                         break;
                 };
@@ -91,17 +96,17 @@ function (
 
                 // This code converts the keyCode (a number) from the event to an uppercase
                 // letter to make the switch statement easier to read.
-                switch(String.fromCharCode(event.keyCode).toUpperCase()) {
-                    case 'A':
+                switch(event.keyCode) {
+                    case LEFT:
                         player.moveLeft(false);
                         break;
-                    case 'D':
+                    case RIGHT:
                         player.moveRight(false);
                         break;
-                    case 'W':
+                    case UP:
                         player.moveUp(false);
                         break;
-                    case 'S':
+                    case DOWN:
                         player.moveDown(false);
                         break;
                 };

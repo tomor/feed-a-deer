@@ -17,7 +17,7 @@ define(['jquery'], function(jquery) {
 
         var X = 0;
         var Y = 1;
-        
+
         var element = jquery('#arena');
         var top     = element.offset().top;
         var left    = element.offset().left;
@@ -30,41 +30,21 @@ define(['jquery'], function(jquery) {
         /**
          * Return boundary in which can object living in arena move
          *
-         * @param {type} object
-         * @returns {undefined}
-         */
-        this.getMaxPositionTop = function(object) {
-            return 0; // object moves in arena dimensions
-        };
-
-        /**
-         * Return boundary in which can object living in arena move
-         *
          * @param {Player} object
-         * @returns {unresolved}
+         * @returns {Number}
          */
         this.getMaxPositionBottom = function(object) {
-            return (height - (object.getSize()[Y])); // size of the arena minus object size
+            return (height - object.getHeight()); // size of the arena minus object size
         };
 
         /**
          * Return boundary in which can object living in arena move
          * 
          * @param {Player} object
-         * @returns {unresolved}
-         */
-        this.getMaxPositionLeft = function(object) {
-            return 0; // object moves in arena dimensions
-        };
-
-        /**
-         * Return boundary in which can object living in arena move
-         * 
-         * @param {Player} object
-         * @returns {unresolved}
+         * @returns {Number}
          */
         this.getMaxPositionRight = function(object) {
-            return (width - object.getSize()[X]); // size of the arena minus object size
+            return (width - object.getWidth()); // size of the arena minus object size
         };
         
         /**
