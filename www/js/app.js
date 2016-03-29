@@ -13,7 +13,7 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['jquery', 'app/game'],
+requirejs(['jquery', 'app/Game'],
 function   (jquery, Game) {
     //jQuery, and the app/main module are all
     //loaded and can be used here now.
