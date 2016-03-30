@@ -1,4 +1,4 @@
-define(['jquery'], function(jquery) {
+define(['jquery', 'app/containers/Arena'], function(jquery) {
     // Forces the JavaScript engine into strict mode: http://tinyurl.com/2dondlh
     "use strict";
 

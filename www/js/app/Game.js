@@ -1,15 +1,15 @@
 define(
     [
      'jquery',
-     './objects/Player',
-     './objects/Arena',
-     './objects/FoodPot'
+     'app/objects/Player',
+     'app/objects/FoodPot',
+     'app/containers/Arena'
     ],
 function (
     jquery,
     Player,
-    Arena,
-    FoodPot
+    FoodPot,
+    Arena
 ) {
     "use strict";
 
@@ -50,7 +50,13 @@ function (
             requestAnimationFrame(this.renderAnimation);
         };
 
-        // method which is regularly called by Window.requestAnimationFrame()
+        /**
+         * Method which is regularly called by Window.requestAnimationFrame()
+         * It's "bind"ed in class constructor so that "this" targets this object
+         *
+         * @param {Number} time - Time which grows constantly with time :)
+         * @returns {undefined}
+         */
         this.renderAnimation = function(time) {
             // prepare time difference
             var t = time - this.lastUpdate;
