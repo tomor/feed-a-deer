@@ -4,6 +4,9 @@ For fun project ;)
 
 ## Programming design (notes/ideas)
 
+### Current state/result of this fun project can be seen here
+- player moving on the grass via ASDF
+https://rawgit.com/tomor/feed-a-deer/master/www/index.html
 
 ### GameObjects
 - Player, Deer, FoodPot
